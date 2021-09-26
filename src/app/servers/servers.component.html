@@ -1,0 +1,6 @@
+<p>Pokemon name is <span class="text-success">{{ pokemonName }}</span></p>
+<input type="text" [(ngModel)] = "pokemonName" class="form-control" #inputName>
+<hr>
+<button class="btn btn-primary" (click)="onChangeNameClick(inputName.value)">Change Name</button>
+&nbsp;
+<button class="btn btn-warning" (click)="onResetClick($event)">Reset</button>

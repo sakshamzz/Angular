@@ -9,6 +9,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 export class ServersComponent implements OnInit {
   pokemonName : string = 'Bulbasaur'
+  pokemonNames = {};
+  randomColor : string = this.getRandomColor()
+  count : number = 1
   constructor() {
    }
 
@@ -24,5 +27,26 @@ export class ServersComponent implements OnInit {
   onResetClick(event: any) {
     console.log(event)
     this.pokemonName = ""
+  }
+
+  onAddClick()
+  {
+    
+    this.pokemonNames["3"] = this.pokemonName;
+    this.randomColor = this.getRandomColor()
+  }
+
+  onRemovePokemon()
+  {
+    this.pokemonNames.pop();
+  }
+
+   getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
   }
 }

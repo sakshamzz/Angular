@@ -7,5 +7,6 @@ templateUrl : './server.component.html'
 
 export class ServerComponent
 {
+    mutedText = true
 
 }

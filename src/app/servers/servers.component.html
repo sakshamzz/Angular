@@ -1,7 +1,10 @@
-<p>Pokemon name is <span class="text-success">{{ pokemonName }}</span></p>
-<input type="text" [(ngModel)] = "pokemonName" class="form-control" #inputName>
+<p [ngStyle]="{'font-style' : true ? 'italic' : ''}">Pokemon name is <span class="text-success">{{ pokemonName }}</span></p>
+<input type="text" [(ngModel)]="pokemonName" class="form-control" #inputName>
 <hr>
 <button class="btn btn-primary" (click)="onChangeNameClick(inputName.value)">Change Name</button>
 &nbsp;
-<button class="btn btn-warning" (click)="onResetClick($event)">Reset</button>
-<button class="btn btn-danger">Go!</button>
+<button class="btn btn-warning" (click)="onResetClick($event)" [disabled]="pokemonName == ''">Reset</button>
+&nbsp;<button class="btn btn-danger" (click)="onAddClick()">Add!</button>
+<h3>Added Pokemons</h3>
+<p [ngStyle]="{ 'background-color' : randomColor}" *ngFor="let x of pokemonNames : let i = index">{{x}}
+    <i class="fa fa-times text-right" (click)="onRemovePokemon()"></i></p>
